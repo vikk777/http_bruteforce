@@ -8,3 +8,6 @@ Configurate script for detecting attacks via POST requests, do this:
 
 ## Using:
 zeek -i \<interface\> http_bruteforce/[hpbf|hbbf]
+
+## Log
+All logs will be written to hbf.log
