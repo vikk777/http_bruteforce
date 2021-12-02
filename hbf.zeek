@@ -29,7 +29,7 @@ export
 
 	global hosts: table[addr] of Credits;
 
-	const THRESHOLD: count(1);
+	const THRESHOLD: count(3);
 
 	global watch_dog: function(username: string, password: string, info: Info);
 }
