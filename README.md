@@ -7,4 +7,4 @@ Configurate script for detecting attacks via POST requests, do this:
 2. Add necessary keywords in fields "username" and "password"
 
 ## Using:
-zeek -i <interface> http_bruteforce/[hpbf|hbbf]
+zeek -i \<interface\> http_bruteforce/[hpbf|hbbf]
