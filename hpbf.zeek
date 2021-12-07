@@ -48,16 +48,20 @@ event http_entity_data(c: connection, is_orig: bool, length: count, data: string
 	{
 		local info: HBF::Info;
 		local credits = extract_credits(data);
-		local username = credits$username;
-		local password = credits$password;
 
-		info$uid = c$uid;
-		info$id = c$id;
-		info$method = c$http$method;
-		info$uri = c$http$uri;
-		info$user_agent = c$http$user_agent;
-		info$auth_type = AUTH_TYPE;
+		if (credits?$username && credits?$password)
+		{
+			local username = credits$username;
+			local password = credits$password;
 
-		HBF::watch_dog(username, password, info);
+			info$uid = c$uid;
+			info$id = c$id;
+			info$method = c$http$method;
+			info$uri = c$http$uri;
+			info$user_agent = c$http$user_agent;
+			info$auth_type = AUTH_TYPE;
+
+			HBF::watch_dog(username, password, info);
+		}
 	}
 }

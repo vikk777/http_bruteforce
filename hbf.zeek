@@ -29,7 +29,7 @@ export
 
 	global hosts: table[addr] of Credits;
 
-	const THRESHOLD: count(3);
+	const THRESHOLD: count(5);
 
 	global watch_dog: function(username: string, password: string, info: Info);
 }
@@ -50,8 +50,8 @@ function watch_dog(username: string, password: string, info: Info)
 	add host$passwords[password];
 
 	if ((!host$brutforser) && (
-		|host$usernames| > THRESHOLD ||
-		|host$passwords| > THRESHOLD))
+		|host$usernames| >= THRESHOLD ||
+		|host$passwords| >= THRESHOLD))
 	{
 		host$brutforser = T;
 	}
